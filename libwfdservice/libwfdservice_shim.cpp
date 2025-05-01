@@ -8,7 +8,13 @@
 #include <media/AudioSystem.h>
 #include <media/DeviceDescriptorBase.h>
 
-#include "WiFiDisplaySession.h"
+#if defined(V1)
+#include "WiFiDisplaySessionV1.h"
+#elif defined(V2)
+#include "WiFiDisplaySessionV2.h"
+#else
+#error Unknown version
+#endif
 
 using android::AudioSystem;
 using android::DeviceDescriptorBase;
